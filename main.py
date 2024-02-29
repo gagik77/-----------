@@ -1,27 +1,13 @@
-import datetime
-goods ={
-     'Пельмени':[
-         {'amount': 1, 'expiration_date':datetime.date(2023, 9, 30)},
-         {'amount': 2, 'expiration_date': datetime.date(2023, 10, 28)}
-     ]
-} 
+class Soda:
+    def __init__(self, tip=None):
+        self.tip = tip
 
-def add(items, title, amount, expiration_date=None):
-    key=items.keys()
-    if expiration_date != None:
-        f_date_str=datetime.datetime.strptime(expiration_date, '%Y-%m-%d')
-        f_date=f_date_str.date()
-        if title in items:
-            goods[title].append({'amount': amount, 'expiration_date':f_date})
+    def show_my_drink(self):
+        if self.tip:
+            print(f"Газировка и {self.tip}")
         else:
-            items[title] = [{'amount':amount,'expiration_date':f_date}]
-    else:
-      if title in items:
-            goods[title].append({'amount': amount, 'expiration_date':f_date})
-      else:
-            items[title] = [{'amount':amount,'expiration_date':f_date}]
-            
+            print("Обычная газировка")
 
 
-add(goods, 'Яйца', 10, '2023-9-30')
-print(goods)
+soda = Soda()
+soda.show_my_drink()
